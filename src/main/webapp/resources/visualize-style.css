@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+#t1,#t2,#t3,#t4{
+	
+	
+	width:30%;
+	margin-top:30px;
+	float:left;
+}
+
+th,td{
+	
+	text-align:center;
+}
+
+
+#parent1,#parent2,#parent3,#parent4{
+	
+	position:relative;
+	width:100%;
+	height:400px;
+	
+	
+}
+
+
+.scatter{
+	
+	float:right;
+	width:68%;
+	height:100%;
+	
+}
+
+#btn1,#btn2,#btn3,#btn4{
+	
+	width:90px;
+	clear:both;
+}
+
+
+
+.label{
+	font-size: 15px;
+}
+
+.legend text,
+.axis text {
+	font-size: 13px;
+	fill: #333;
+}
+
+.axis path,
+.axis line{
+	fill: none;
+	stroke-width: 1px;
+	stroke: #777;
+}
+
+.circle{
+	fill-opacity: 0.65;
+}
+
+.bubble,
+.bubble2,
+.bubble3,
+.bubble4{
+	opacity: 1;
+	transition: opacity 0.3s;
+}
+
+.bubble:hover text, 
+.bubble2:hover text,
+.bubble3:hover text,
+.bubble4:hover text{
+	opacity: 1;
+}
+
+.bubble:hover circle,
+.bubble2:hover circle,
+.bubble3:hover circle,
+.bubble4:hover circle{
+	fill-opacity: 1;
+}
+
+.legend rect{
+	fill-opacity: 0.75;
+}
+
+.legeng:hover rect{
+	fill-opacity:1;
+}
+
+#footer-container{
+	
+	position:relative;
+	bottom:0;
+	margin-top:40px;
+	
+}

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>WebParmenidianTruth</artifactId>
+  <packaging>war</packaging>
+
+  <parent>
+  	<groupId>gr.cs.uoi.daintiness</groupId>
+  	<artifactId>parmenidian-parent</artifactId>
+  	<version>1.0</version>
+  	<relativePath>../parmenidian-parent</relativePath>
+  </parent>
+
+  <name>WebParmenidianTruth</name>
+  <!-- FIXME change it to the project's website -->
+  <url>localhost:8080</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>4.0.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.eclipse.jetty</groupId>
+    	<artifactId>jetty-server</artifactId>
+    	<version>9.4.12.v20180830</version>
+    </dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+	<dependency>
+    	<groupId>com.google.guava</groupId>
+    	<artifactId>guava</artifactId>
+    	<version>27.0.1-jre</version>
+	</dependency>
+	
+    
+    <dependency>
+    	<groupId>org.eclipse.jetty</groupId>
+    	<artifactId>jetty-annotations</artifactId>
+    	<version>9.4.12.v20180830</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.eclipse.jetty</groupId>
+    	<artifactId>jetty-webapp</artifactId>
+    	<version>9.4.12.v20180830</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.antlr/antlr4-runtime -->
+	<!-- https://mvnrepository.com/artifact/net.sf.jung/jung-algorithms -->
+	<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-api -->
+	
+	<!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
+	
+	
+
+	<dependency>
+		<groupId>gr.cs.uoi.daintiness</groupId>
+		<artifactId>ParmenidianTruth-API</artifactId>
+		<version>1.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.glassfish.web</groupId>
+		<artifactId>javax.servlet.jsp.jstl</artifactId>
+		<version>1.2.2</version>
+	</dependency>
+	<dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.8.5</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+	<dependency>
+    	<groupId>commons-fileupload</groupId>
+    	<artifactId>commons-fileupload</artifactId>
+    	<version>1.3.3</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+	<dependency>
+   		<groupId>javax.xml.bind</groupId>
+    	<artifactId>jaxb-api</artifactId>
+    	<version>2.4.0-b180830.0359</version>
+	</dependency>
+	
+  </dependencies>
+
+  <build>
+    <finalName>WebParmenidianTruth</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.20.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.0</version>
+          <configuration>
+          	<archive>
+          		<manifest>
+          			<addClasspath>true</addClasspath>
+          			<mainClass>gr.cs.uoi.daintiness/Main</mainClass>
+          		</manifest>
+          	</archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-maven-plugin -->
+	<plugin>
+    	<groupId>org.eclipse.jetty</groupId>
+    	<artifactId>jetty-maven-plugin</artifactId>
+    	<version>9.4.12.v20180830</version>
+	</plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+  <description>Visualizes the story of a database's schema.</description>
+</project>
