@@ -12,7 +12,7 @@ import gr.cs.uoi.daintiness.model.Node;
 
 
 /**
- * 
+ * Defines the methods that compute evolution-related statistics.
  * @author KD
  * @since 2018-12-15
  * @version 1.0
