@@ -162,6 +162,7 @@ public class ProjectCreatorServlet extends HttpServlet {
 
 		
 		request.setAttribute("schemas",projectServer.getVersionsInJson());
+		request.setAttribute("hideAttr",'0');
 		request.getRequestDispatcher("/upload.jsp").forward(request, response);
 
 	}

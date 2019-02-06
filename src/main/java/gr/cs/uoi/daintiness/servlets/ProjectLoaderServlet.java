@@ -73,6 +73,7 @@ public class ProjectLoaderServlet extends HttpServlet {
 			if (f.isDirectory())
 				projectsNames.add(f.getName());
 
+		//redirecting to upload page when the user load a project from server
 		if (request.getParameterMap().containsKey("optradio")) {
 			if (!request.getParameter("optradio").equals(null) &&
 					!request.getParameter("optradio").isEmpty()) {
@@ -91,8 +92,12 @@ public class ProjectLoaderServlet extends HttpServlet {
 						this.prjServer.getBirthVersionStats()));
 
 				request.setAttribute("schemas",prjServer.getVersionsInJson());
+				request.setAttribute("hideAttr",'1');
 				request.getRequestDispatcher("/upload.jsp").forward(request, response);
+				
 			}
+		
+		//redirecting to upload page when user selects different stats 
 		}else if(request.getParameterMap().containsKey("statsId")) {
 				
 			String statsId = request.getParameter("statsId");
@@ -122,10 +127,12 @@ public class ProjectLoaderServlet extends HttpServlet {
 			
 			request.setAttribute("schemas",prjServer.getVersionsInJson());
 			
+			request.setAttribute("hideAttr",'1');
+			
 			request.getRequestDispatcher("/upload.jsp").forward(request, response);
 			
 
-			
+		//redirecting to load page
 		}else {
 				request.setAttribute("projects",projectsNames);
 				request.getRequestDispatcher("/load.jsp").forward(request, response);
