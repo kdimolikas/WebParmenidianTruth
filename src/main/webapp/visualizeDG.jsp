@@ -41,7 +41,14 @@
 	
 	<link rel="stylesheet" href="resources/visualize-DG-style.css">
 	
+	<!-- D3 library -->
 	<script  src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="http://d3js.org/d3-selection-multi.v1.js"></script>
+	
+	<!-- Plotly library -->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  	<!-- Numeric JS -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 	
 	<!-- Functions that draw the 4 evo patterns -->
 	<script type="text/javascript" src="resources/dg-viz.js" ></script>
@@ -108,12 +115,18 @@
 			
 
 		
-		</div>
+		</div><!-- End of form-group -->
 
 		<div class="scatter-DG" id="scatterDG"></div>
 	
+		<div id="pie"><!-- Contains a pie chart with info about the 
+					   	   breakdown of nodes over the groups -->
+		</div>
+	
 	
 	</div> <!-- End of container -->
+	
+	
 
 	<form action="">
 			<input id="nod" value='${nodes}' type="hidden">

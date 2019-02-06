@@ -35,18 +35,29 @@ height:100%
 	
 	position:absolute;
 	float:left;
-	width:15%;
-	height:100%;
+	width:25%;
+	height:55%;
 	border:red solid 0px;
+}
+
+#pie{
+	
+	clear:left;
+	position:absolute;
+	bottom:0;
+	width:25%;
+	height:45%;
+	border:0px solid cyan;
+	
 }
 
 
 #scatterDG{
 	
 	position:absolute;
-	width:82%;
+	width:75%;
 	height:100%;
-	left:18%;
+	left:25%;
 	float:right;
 	border:solid 0px blue;
 	
@@ -80,10 +91,13 @@ input[type="range"],input[type="number"]{
 }
 
 
+
 .links line {
   stroke: black;
   stroke-opacity: 0.8;
+ 
 }
+
 
 .nodes circle {
   stroke: #fff;

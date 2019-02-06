@@ -54,7 +54,6 @@ function drawDG(n,l){
     
     try{
 	var nodes = JSON.parse(n); 
-	console.log(nodes);
     }catch (e){
 	alert(e);
     }
@@ -62,7 +61,6 @@ function drawDG(n,l){
     
     try{
 	var links = JSON.parse(l); 
-	console.log(links);
     }catch (e1){
 	alert(e1);
     }
@@ -93,7 +91,56 @@ function drawDG(n,l){
     var color = d3.scaleOrdinal(d3.schemeCategory20)
     		.domain(nodes.map(function(d){return d.groupLabel}));
     
+    //Group labels for nodes
     var groups = nodes.map(function(d){return d.groupLabel;});
+    
+    //Frequency of groups
+    var groupFreq = new Object();
+    
+    //Unique group labels
+    var groupLabels = groups.filter((item,i,ar)=>ar.indexOf(item)===i);
+    
+    
+    //Map for groups frequency
+    var mapFreq = {};
+    
+    //Initiate mapFreq
+    for (i=0;i<groupLabels.length;i++)
+	mapFreq[groupLabels[i]] = 0;
+	
+    //Count the frequency of each group
+    for (i=0;i<groups.length;i++)	
+	mapFreq[groups[i]] += 1; 
+
+    
+    var pieData = [{
+	
+	values:Object.keys(mapFreq).map(function(k){
+	    return mapFreq[k];
+	 }),
+	labels:Object.keys(mapFreq),
+	type:'pie',
+	
+    }];
+    
+    var layout = {
+	autosize:false,  
+	width:400,
+	height:200,
+	margin:{
+	    
+	    l:5,
+	    r:5,
+	    b:12,
+	    t:25
+	    
+	}
+    };
+    
+    //Plot the pie chart
+    Plotly.newPlot('pie', pieData, layout);
+    
+     
     
     var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) {return d.id;}).strength(0.5))
@@ -149,6 +196,29 @@ function drawDG(n,l){
     .enter().append("g");
   
 
+    //arrow marker
+    svg.append('defs').append('marker')
+    .attrs({'id':'arrowhead',
+        'viewBox':'0 -5 10 10',
+        'refX':13,
+        'refY':0,
+        'orient':'auto',
+        'markerWidth':13,
+        'markerHeight':13,
+        'xoverflow':'visible'})
+    .append('svg:path')
+    .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+    .attr('fill', 'black')
+    .style('stroke','none');
+    
+
+    
+    
+    link.attr('marker-end',function(d){
+	return d.source == d.target ?'':'url(#arrowhead)';
+    });
+    
+    
     var radius = d3.scaleSqrt().range([2,4]);
     
     var circles = node.append('circle')
@@ -193,16 +263,22 @@ function drawDG(n,l){
     }
     
     
+
     function ticked() {
+	
 	link.attr("x1", function(d) { return d.source.x; })
 	.attr("y1", function(d) { return d.source.y; })
 	.attr("x2", function(d) { return d.target.x; })
 	.attr("y2", function(d) { return d.target.y; });
+	
 
 	node.attr("transform", function(d) {
 	    return "translate(" + d.x + "," + d.y + ")";
-	})
+	});
     }
+    
+    
+   
     
     function dragstarted(d) {
 	  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
