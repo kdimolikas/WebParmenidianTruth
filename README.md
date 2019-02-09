@@ -4,7 +4,7 @@ A web application that can be used to visualize the schema evolution of relation
 
 The main functionalities of the application can be summarized as follows:
 
-* **Visualize** DB's schemata as graphs with nodes and edges representing the including tables and foreign keys, respectively.
+* **Visualize** DB's schemata as graphs with nodes and edges representing the including tables and foreign keys, respectively.\**
 * **Visualize** several evolution-related patterns
 * **Compute** evolution-related statistics
 
@@ -23,3 +23,5 @@ For more information on how to run web application, please refer to the [README]
 [README]: https://github.com/kdimolikas/WebSchemaVisualizer/blob/master/README.md
 
 \*: *created in the context of my MSc thesis at the department of Computer Science & Engineering of the University of Ioannina, under the supervision of associate professor Panos Vassiliadis*. 
+
+\**The schema of BioSQL database in version 30.![BioSQL-Schema30](/resources/icons/bio-Schema.png)
