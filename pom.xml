@@ -35,7 +35,7 @@
     	<version>9.4.17.v20190418</version>
     </dependency>
 
-	<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+	
 	<dependency>
     	<groupId>com.google.guava</groupId>
     	<artifactId>guava</artifactId>
